@@ -23,10 +23,10 @@ Solo uno —el **Maestro**— se conecta al parlante y reproduce la lista en ord
 3. 🙋 **Los Invitados abren la app**
    - Eligen el rol **Invitado**
    - Usan la cámara para escanear el QR del Maestro.
-   - Acceden a un YouTube embebido para buscar canciones y agregarlas a la cola compartida.
-
+   - Acceden a una WebView con YouTube embebido para buscar canciones y agregarlas a la cola compartida.
+   
 4. 🧠 **Reproducción en el Maestro**
-   - Las canciones se reproducen en orden a través de una WebView con YouTube.
+   - El maestro reproduce la lista en YouTube nativo, no embebido.
    - YouTube sigue sonando incluso con la pantalla apagada o la app minimizada.
    - 🔔 Se recomienda tener **YouTube Premium** en el Maestro para evitar publicidades.
 
@@ -70,14 +70,12 @@ app/src/main/java/com/marce/rocola/
 
 ## 💡 Ideas futuras
 
-- ✅ Reproducción desde WebView
+- ✅ Reproducción desde YouTube
 - ✅ Escaneo QR con CameraX
+- ✅ Historial de temas
+- ⬜ Autoplay al finalizar canción (ésta es la pieza que falta)
 - ⬜ Votación de canciones
 - ⬜ Reordenamiento democrático
-- ⬜ Historial de temas
-- ⬜ Versión en español e inglés
-- ⬜ Autoplay al finalizar canción
-- ⬜ Sistema de conexión por Bluetooth o hotspot
 
 ---
 
