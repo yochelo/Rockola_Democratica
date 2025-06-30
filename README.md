@@ -9,20 +9,37 @@ Solo uno —el **Maestro**— se conecta al parlante y reproduce la lista en ord
 
 ## 🚀 ¿Cómo funciona?
 
-- Al iniciar la app, se elige un rol:
-  - 👑 **Maestro**: se encarga de reproducir y compartir la IP con los invitados.
-  - 🙋 **Invitado**: escanea el QR o pone la IP y agrega canciones.
+### 🔁 Flujo general de uso:
 
-### 🎥 Reproducción de canciones:
+1. 📶 **Conectarse a la misma red Wi-Fi**
+   - Tanto el Maestro como los Invitados deben estar en la misma red local (LAN).
 
-- Los **invitados** tienen un YouTube embebido para buscar y agregar canciones a la lista.
-- El **Maestro** reproduce los temas directamente en la app mediante el navegador nativo de YouTube.
-  - Esto permite que la música **siga sonando aunque se bloquee el teléfono** o se minimice la app.
-  - 🔔 **Sugerencia**: lo ideal es que el Maestro tenga **YouTube Premium** para evitar publicidades entre canciones.
+2. 👑 **El Maestro inicia la app**
+   - Elige el rol **Maestro**
+   - Se activa un **Foreground Service** que mantiene el servidor HTTP funcionando incluso si se minimiza o bloquea la pantalla.
+   - Se crea automáticamente una lista de canciones en su almacenamiento interno.
+   - Puede mostrar un **código QR** con su IP local, para que los invitados se conecten fácilmente.
 
-- La lista de canciones es compartida y en tiempo real.
-- El servidor corre en el dispositivo Maestro, usando HTTP local.
-- No requiere conexión a internet ni APIs externas (salvo para acceder a YouTube).
+3. 🙋 **Los Invitados abren la app**
+   - Eligen el rol **Invitado**
+   - Usan la cámara para escanear el QR del Maestro.
+   - Acceden a un YouTube embebido para buscar canciones y agregarlas a la cola compartida.
+
+4. 🧠 **Reproducción en el Maestro**
+   - Las canciones se reproducen en orden a través de una WebView con YouTube.
+   - YouTube sigue sonando incluso con la pantalla apagada o la app minimizada.
+   - 🔔 Se recomienda tener **YouTube Premium** en el Maestro para evitar publicidades.
+
+5. 📱 **Desde la barra de notificaciones**
+   - Se puede ver el estado de conexión y detener la sesión (tanto para Maestro como Invitado).
+
+---
+
+## 🎬 Limitaciones actuales
+
+- ❌ **No hay autoplay** al finalizar un video.
+   - No es posible tomar el control de la notificación de YouTube o detectar directamente cuándo termina una canción.
+   - Si alguien tiene una idea creativa para resolverlo, ¡los pull requests son bienvenidos!
 
 ---
 
@@ -59,6 +76,8 @@ app/src/main/java/com/marce/rocola/
 - ⬜ Reordenamiento democrático
 - ⬜ Historial de temas
 - ⬜ Versión en español e inglés
+- ⬜ Autoplay al finalizar canción
+- ⬜ Sistema de conexión por Bluetooth o hotspot
 
 ---
 
